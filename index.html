@@ -26,8 +26,7 @@
             </section>
 
         
-            <h2></h2>
-            <h3></h3>
+            <h2>Portfolio's category </h2>
 
         </header>
 
@@ -38,6 +37,10 @@
             </aside>
 
             <table>
+                <caption>Technical Qualifications</caption>
+                <colgroup>
+                    <col style="background-color:aliceblue">
+                </colgroup>
                 <tr>
                     <th>Date</th>
                     <th>Qualification</th>
@@ -57,7 +60,7 @@
 
             <p><b>WIP^</b></p>
 
-            <p>Stuff that needs work on:</p>
+            <h3>Stuff that needs work on:</h3>
 
             <ol>
                 <li>CSS</li>
@@ -119,6 +122,26 @@
                     <summary>HTML</summary>
                     <p>that's what this assignment had us working on</p>
                 </details>
+
+                <template><h3>hidden text!</h3></template>
+
+                <figure>
+                    <img src="bear.png" alt="Warren Bear" height="210" width="350">
+                    <figcaption>da Bear at Warren</figcaption>
+                </figure>
+
+                <canvas id="canvas" width="400" height="400"></canvas>
+
+                <script>
+                    const canvas = document.getElementById("canvas");
+                    const shape = canvas.getContext("2d");
+                    shape.fillStyle = "green";
+                    shape.fillRect(300, 300, 10, 10);
+                </script>
+
+                <svg width ="50" height ="50">
+                    <polygon points="10,100 200,180 180,90" style="stroke:aquamarine"/>
+                </svg>
             </section>
 
         </main>
