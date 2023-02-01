@@ -66,12 +66,20 @@
 
             <b>Identify yourselves:</b>
             <form>
-                <label for="role">Choose who you are:</label>
-                <select name="role" id="role">
-                    <optgroup label = "UCSD">
-                        <option value="TA">TA</option>
-                        <option value="Student">Student</option>
-                </select>
+                <br>
+                <fieldset>
+                    <legend>Your info:</legend>
+                    <label for="name">Name:</label>
+                    <input type="text" id = "name">
+                    <br>
+                    <label for="role">Your role:</label>
+                    <select name="role" id="role">
+                        <optgroup label = "UCSD">
+                            <option value="TA">TA</option>
+                            <option value="Student">Student</option>
+                    </select>
+                </fieldset>
+
                 <input type="enter" value="Enter">
             </form>
 
@@ -98,6 +106,8 @@
                 </video>
 
                 <button>random!</button>
+
+                <textarea id="ta" rows="2" cols="25">Lorem Ipsum</textarea>
             </section>
 
         </main>
