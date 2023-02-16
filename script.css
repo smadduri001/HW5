@@ -7,7 +7,7 @@
 }
 
 html, body {
-    color: var(--site-color);
+    background-color: var(--site-color);
     display: grid;
     grid-template-columns: auto;
     grid-gap: 2em;
