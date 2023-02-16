@@ -19,3 +19,13 @@ html, body {
 header, footer {
     grid-column: 1/4;
 }
+
+@font-face {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    src: url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+}
+
+#navbar {
+    font-family: 'Open Sans';
+}
