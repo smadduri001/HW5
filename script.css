@@ -1,8 +1,13 @@
+:root {
+    --site-color: #faf9f5;
+}
+
 * {
     font-family: Sans-Serif;
 }
 
 html, body {
+    color: var(--site-color);
     display: grid;
     grid-template-columns: auto;
     grid-gap: 2em;
