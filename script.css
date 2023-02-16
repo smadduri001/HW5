@@ -2,3 +2,15 @@
     font-family: Sans-Serif;
 }
 
+html, body {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 2em;
+    margin: 0 auto;
+    max-width: 50em;
+    padding: 10px;
+}
+
+header, footer {
+    grid-column: 1/4;
+}
