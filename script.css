@@ -39,15 +39,15 @@ nav li {
 }
 
 @keyframes colorchange {
-    from {background-color: #ff7ea9;}
-    to {background-color: #ff0055;}
+    from {background-color: #ff0055;}
+    to {background-color: #ff7ea9;}
 }
 
 .nav_bar {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #ff7ea9;
+    background-color: #ff0055;
     animation-name: colorchange;
     animation-duration: 10s;
 }
