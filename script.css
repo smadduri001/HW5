@@ -1,3 +1,17 @@
+@media only screen and (min-width: 360px){
+
+    html, body {
+        background-color: var(--site-color);
+        display: grid;
+        grid-template-columns: auto;
+        grid-gap: 1em;
+        margin: 0 auto;
+        max-width: 20em;
+        padding: 10px;
+    }
+    
+}
+
 :root {
     --site-color: #faf9f5;
 }
@@ -6,14 +20,16 @@
     font-family: Sans-Serif;
 }
 
-html, body {
-    background-color: var(--site-color);
-    display: grid;
-    grid-template-columns: auto;
-    grid-gap: 2em;
-    margin: 0 auto;
-    max-width: 50em;
-    padding: 10px;
+@media only screen and (min-width: 768px) and (min-width: 1366px) {
+    html, body {
+        background-color: var(--site-color);
+        display: grid;
+        grid-template-columns: auto;
+        grid-gap: 2em;
+        margin: 0 auto;
+        max-width: 50em;
+        padding: 10px;
+    }
 }
 
 header, footer {
