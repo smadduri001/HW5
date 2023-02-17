@@ -38,11 +38,18 @@ nav li {
     display: inline block;
 }
 
+@keyframes colorchange {
+    from {background-color: #ff7ea9;}
+    to {background-color: #ff0055;}
+}
+
 .nav_bar {
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #ff7ea9;
+    animation-name: colorchange;
+    animation-duration: 10s;
 }
 
 nav li a {
