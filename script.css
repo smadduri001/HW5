@@ -31,7 +31,7 @@ header, footer {
 }
 
 nav li {
-    display: block;
+    display: inline block;
 }
 
 .nav_bar {
