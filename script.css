@@ -12,7 +12,7 @@ html, body {
     grid-template-columns: auto;
     grid-gap: 2em;
     margin: 0 auto;
-    max-width: 50em;
+    max-width: 100em;
     padding: 10px;
 }
 
