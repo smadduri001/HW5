@@ -12,7 +12,7 @@ html, body {
     grid-template-columns: auto;
     grid-gap: 2em;
     margin: 0 auto;
-    max-width: 100em;
+    max-width: 50em;
     padding: 10px;
 }
 
@@ -50,4 +50,12 @@ nav li a {
     text-align: center;
     padding: 10px 14px;
     font-family: 'Open Sans';
+}
+
+#polygon {
+    transition: transform 2s;
+}
+
+#polygon:hover {
+    transform: scale(1.5);
 }
