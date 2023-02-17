@@ -30,6 +30,20 @@ header, footer {
     font-family: 'Open Sans';
 }
 
-nav {
+nav li {
     display: block;
+}
+
+.nav_bar {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ff7ea9;
+}
+
+nav li a {
+    display: block;
+    text-align: center;
+    padding: 10px 14px;
+    font-family: 'Open Sans';
 }
