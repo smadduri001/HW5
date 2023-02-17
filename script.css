@@ -61,6 +61,7 @@ nav li a {
 
 #polygon {
     transition: transform 2s;
+    color: palegoldenrod;
 }
 
 #polygon:hover {
