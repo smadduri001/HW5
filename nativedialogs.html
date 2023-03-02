@@ -34,22 +34,22 @@
                 });
 
                 prompt.addEventListener("click", function() {
-                    const userInput = window.prompt("What is your name?");
+                    let userInput = window.prompt("What is your name?");
                     if(userInput === null) {
                         output.textContent = `User didn't enter anything`;
                     }
                     else {
-                        output.textContent = `Prompt result: ${result}`;
+                        output.textContent = `Prompt result: ${userInput}`;
                     }
                 });
 
                 saferPrompt.addEventListener("click", function() {
-                    const safeUserInput = window.prompt("What is your name?");
+                    let safeUserInput = window.prompt("What is your name?");
                     if(safeUserInput === null) {
                         output.textContent = `User didn't enter anything`;
                     }
                     else {
-                        let purified = DOMPurify.sanitize(result);
+                        let purified = DOMPurify.sanitize(safeUserInput);
                         output.textContent = `Prompt result: ${purified}`;
                     }
                 });
