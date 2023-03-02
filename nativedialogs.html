@@ -30,7 +30,7 @@
 
                 confirm.addEventListener("click", function() {
                     let permission = window.confirm("Do you confirm this?");
-                    output.textContent = `The value returned by the confirm method is : ${permission}`;
+                    output.innerHTML = `The value returned by the confirm method is : ${permission}`;
                 });
 
                 prompt.addEventListener("click", function() {
@@ -39,7 +39,7 @@
                         output.textContent = `User didn't enter anything`;
                     }
                     else {
-                        output.textContent = `Prompt result: ${userInput}`;
+                        output.innerHTML = `Prompt result: ${userInput}`;
                     }
                 });
 
@@ -50,7 +50,7 @@
                     }
                     else {
                         let purified = DOMPurify.sanitize(safeUserInput);
-                        output.textContent = `Prompt result: ${purified}`;
+                        output.innerHTML = `Prompt result: ${purified}`;
                     }
                 });
             });
