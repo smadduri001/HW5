@@ -25,7 +25,7 @@
                 let output = document.getElementById("output");
 
                 alert.addEventListener("click", function() {
-                    window.alert("Alert pressed!");
+                    alert("Alert pressed!");
                 });
 
                 confirm.addEventListener("click", function() {
@@ -34,11 +34,24 @@
                 });
 
                 prompt.addEventListener("click", function() {
-                    
+                    let userInput = prompt("What is your name?");
+                    if(userInput === null) {
+                        output.textContent = `User didn't enter anything`;
+                    }
+                    else {
+                        output.textContent = `Prompt result: ${result}`;
+                    }
                 });
 
                 saferPrompt.addEventListener("click", function() {
-                    
+                    let userInput = prompt("What is your name?");
+                    if(userInput === null) {
+                        output.textContent = `User didn't enter anything`;
+                    }
+                    else {
+                        let purified = DOMPurify.sanitize(result);
+                        output.textContent = `Prompt result: ${purified}`;
+                    }
                 });
             });
         </script>
