@@ -34,7 +34,7 @@
                 });
 
                 prompt.addEventListener("click", function() {
-                    let userInput = window.prompt("What is your name?");
+                    const userInput = window.prompt("What is your name?");
                     if(userInput === null) {
                         output.textContent = `User didn't enter anything`;
                     }
@@ -44,8 +44,8 @@
                 });
 
                 saferPrompt.addEventListener("click", function() {
-                    let userInput = window.prompt("What is your name?");
-                    if(userInput === null) {
+                    const safeUserInput = window.prompt("What is your name?");
+                    if(safeUserInput === null) {
                         output.textContent = `User didn't enter anything`;
                     }
                     else {
