@@ -1,0 +1,1 @@
+I increased the portfolio page's responsiveness to device size by adding a new meta charset tag. I also made the portfolio page more of a portfolio page by deleting stuff that did not belong to it like the experiment section.
