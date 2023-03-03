@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', init);
 
-function init() {
+export function init() {
     let outputBox = document.getElementById("outputBox");
 
     document.getElementById("alertButton").addEventListener("click", function() {
