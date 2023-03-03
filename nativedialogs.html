@@ -30,7 +30,7 @@
                     outputBox.innerHTML = ``;
                     setTimeout(() => {
                         let permission = confirm("Do you confirm this?");
-                        output.innerHTML = `The value returned by the confirm method is : ${permission}`;
+                        outputBox.innerHTML = `The value returned by the confirm method is : ${permission}`;
                     }, 0);
                 });
 
@@ -39,10 +39,10 @@
                     setTimeout(() => {
                         let userInput = prompt("What is your name?");
                         if(userInput === null) {
-                            output.innerHTML = `User didn't enter anything`;
+                            outputBox.innerHTML = `User didn't enter anything`;
                         }
                         else {
-                            output.innerHTML = `Prompt result: ${userInput}`;
+                            outputBox.innerHTML = `Prompt result: ${userInput}`;
                         }
                     }, 0);
                 });
@@ -52,11 +52,11 @@
                     setTimeout(() => {
                         let safeUserInput = window.prompt("What is your name?");
                         if(safeUserInput === null) {
-                            output.innerHTML = `User didn't enter anything`;
+                            outputBox.innerHTML = `User didn't enter anything`;
                         }
                         else {
                             let purified = DOMPurify.sanitize(safeUserInput);
-                            output.innerHTML = `Prompt result: ${purified}`;
+                            outputBox.innerHTML = `Prompt result: ${purified}`;
                         }
                     }, 0);
                 });
