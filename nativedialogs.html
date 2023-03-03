@@ -33,8 +33,7 @@
                 });
                 
 
-                setTimeout(() => {
-                    document.getElementById("promptButton").addEventListener("click", function() {
+                                    document.getElementById("promptButton").addEventListener("click", function() {
                         //output.innerHTML = "";
                         let userInput = prompt("What is your name?");
                         if(userInput === null) {
@@ -44,9 +43,9 @@
                             output.innerHTML = `Prompt result: ${userInput}`;
                         }
                     });
-                }, 0);
+                
 
-                setTimeout(() => {
+                
                     document.getElementById("saferPromptButton").addEventListener("click", function() {
                         //output.innerHTML = "";
                         let safeUserInput = window.prompt("What is your name?");
@@ -58,7 +57,7 @@
                             output.innerHTML = `Prompt result: ${purified}`;
                         }
                     });
-                }, 0);
+                
             }
         </script>
     </body>
