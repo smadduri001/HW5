@@ -17,7 +17,9 @@
         <output id="output"></output>
 
         <script>
-            document.addEventListener("DOMContentLoaded", function() {
+            window.addEventListener('DOMContentLoaded', init);
+
+            function init() {
                 let alert = document.getElementById("alert");
                 let confirm = document.getElementById("confirm");
                 let prompt = document.getElementById("prompt");
@@ -25,16 +27,16 @@
                 let output = document.getElementById("output");
 
                 alert.addEventListener("click", function() {
-                    alert("Alert pressed!");
+                    window.alert("Alert pressed!");
                 });
 
                 confirm.addEventListener("click", function() {
-                    let permission = confirm("Do you confirm this?");
+                    let permission = window.confirm("Do you confirm this?");
                     output.innerHTML = `The value returned by the confirm method is : ${permission}`;
                 });
 
                 prompt.addEventListener("click", function() {
-                    let userInput = prompt("What is your name?");
+                    let userInput = window.prompt("What is your name?");
                     if(userInput === null) {
                         output.textContent = `User didn't enter anything`;
                     }
@@ -44,7 +46,7 @@
                 });
 
                 saferPrompt.addEventListener("click", function() {
-                    let safeUserInput = prompt("What is your name?");
+                    let safeUserInput = window.prompt("What is your name?");
                     if(safeUserInput === null) {
                         output.textContent = `User didn't enter anything`;
                     }
@@ -53,7 +55,7 @@
                         output.innerHTML = `Prompt result: ${purified}`;
                     }
                 });
-            });
+            }
         </script>
     </body>
 </html>
