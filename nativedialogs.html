@@ -44,7 +44,7 @@
                         else {
                             let userInputContainer = document.createElement();
                             userInputContainer.innerHTML = userInput;
-                            outputBox.innerHTML = `Prompt result: ${userInputContainer}`;
+                            outputBox.innerHTML = `Prompt result: ${userInputContainer.outerHTML}`;
                         }
                     }, 0);
                 });
