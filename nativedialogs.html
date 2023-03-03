@@ -28,7 +28,7 @@
 
                 setTimeout(() => {
                     document.getElementById("confirmButton").addEventListener("click", function() {
-                        output.innerHTML = ``;
+                        output.textContent = ``;
                         let permission = confirm("Do you confirm this?");
                         output.innerHTML = `The value returned by the confirm method is : ${permission}`;
                     });
@@ -36,7 +36,7 @@
 
                 setTimeout(() => {
                     document.getElementById("promptButton").addEventListener("click", function() {
-                        output.innerHTML = ``;
+                        output.textContent = ``;
                         let userInput = prompt("What is your name?");
                         if(userInput === null) {
                             output.innerHTML = `User didn't enter anything`;
@@ -49,7 +49,7 @@
 
                 setTimeout(() => {
                     document.getElementById("saferPromptButton").addEventListener("click", function() {
-                        output.innerHTML = ``;
+                        output.textContent = ``;
                         let safeUserInput = window.prompt("What is your name?");
                         if(safeUserInput === null) {
                             output.innerHTML = `User didn't enter anything`;
