@@ -31,7 +31,7 @@
                     setTimeout(() => {
                         let permission = confirm("Do you confirm this?");
                         outputBox.innerHTML = `The value returned by the confirm method is : ${permission}`;
-                    }, 0);
+                    }, 1);
                 });
 
                 document.getElementById("promptButton").addEventListener("click", function() {
@@ -44,7 +44,7 @@
                         else {
                             outputBox.innerHTML = `Prompt result: ${userInput}`;
                         }
-                    }, 0);
+                    }, 1);
                 });
 
                 document.getElementById("saferPromptButton").addEventListener("click", function() {
@@ -58,7 +58,7 @@
                             let purified = DOMPurify.sanitize(safeUserInput);
                             outputBox.innerHTML = `Prompt result: ${purified}`;
                         }
-                    }, 0);
+                    }, 1);
                 });
             }
         </script>
