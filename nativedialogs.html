@@ -27,11 +27,10 @@
                 });
 
                 
-                    document.getElementById("confirmButton").addEventListener("click", function() {
-                        output.innerHTML = "";
-                        let permission = confirm("Do you confirm this?");
-                        output.innerHTML = `The value returned by the confirm method is : ${permission}`;
-                    });
+                document.getElementById("confirmButton").addEventListener("click", function() {
+                    let permission = confirm("Do you confirm this?");
+                    output.innerHTML = `The value returned by the confirm method is : ${permission}`;
+                });
                 
 
                 setTimeout(() => {
