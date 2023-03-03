@@ -33,22 +33,19 @@ function init() {
             let promptDialog = document.getElementById("promptDialog");
             promptDialog.showModal();
             document.getElementById("promptCancelButton").addEventListener("click", function() {
-                promptDialog.close();
                 outputBox.innerHTML = `User didn't enter anything`;
+                promptDialog.close();
             });
             document.getElementById("promptOkButton").addEventListener("click", function() {
                 let userInput = document.getElementById("promptInput");
                 if(userInput.value == null) {
-                    promptDialog.close();
                     outputBox.innerHTML = `User didn't enter anything`;
                 }
                 else {
-                    setTimeout(() => {
-                        let purified = DOMPurify.sanitize(userInput.value);
-                        promptDialog.close();
-                        outputBox.innerHTML = `Prompt result: ${purified}`;
-                    }, 0);
+                    let purified = DOMPurify.sanitize(userInput.value);
+                    outputBox.innerHTML = `Prompt result: ${purified}`;
                 }
+                promptDialog.close();
             });
         }, 0);
     });
