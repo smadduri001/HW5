@@ -42,7 +42,9 @@
                             outputBox.innerHTML = `User didn't enter anything`;
                         }
                         else {
-                            outputBox.innerHTML = `Prompt result: ${userInput}`;
+                            let userInputContainer = document.createElement();
+                            userInputContainer.innerHTML = userInput;
+                            outputBox.innerHTML = `Prompt result: ${userInputContainer}`;
                         }
                     }, 0);
                 });
