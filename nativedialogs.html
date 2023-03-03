@@ -26,40 +26,34 @@
                     alert("Alert pressed!");
                 });
 
-                setTimeout(() => {
-                    document.getElementById("confirmButton").addEventListener("click", function() {
-                        outputBox.innerHTML = ``;
-                        let permission = confirm("Do you confirm this?");
-                        outputBox.innerHTML = `The value returned by the confirm method is : ${permission}`;
-                    });
-                }, 0);
+                document.getElementById("confirmButton").addEventListener("click", function() {
+                    outputBox.innerHTML = ``;
+                    let permission = confirm("Do you confirm this?");
+                    output.innerHTML = `The value returned by the confirm method is : ${permission}`;
+                });
 
-                setTimeout(() => {
-                    document.getElementById("promptButton").addEventListener("click", function() {
-                        outputBox.innerHTML = ``;
-                        let userInput = prompt("What is your name?");
-                        if(userInput === null) {
-                            outputBox.innerHTML = `User didn't enter anything`;
-                        }
-                        else {
-                            outputBox.innerHTML = `Prompt result: ${userInput}`;
-                        }
-                    });
-                }, 0);
+                document.getElementById("promptButton").addEventListener("click", function() {
+                    outputBox.innerHTML = ``;
+                    let userInput = prompt("What is your name?");
+                    if(userInput === null) {
+                        output.innerHTML = `User didn't enter anything`;
+                    }
+                    else {
+                        output.innerHTML = `Prompt result: ${userInput}`;
+                    }
+                });
 
-                setTimeout(() => {
-                    document.getElementById("saferPromptButton").addEventListener("click", function() {
-                        outputBox.innerHTML = ``;
-                        let safeUserInput = window.prompt("What is your name?");
-                        if(safeUserInput === null) {
-                            outputBox.innerHTML = `User didn't enter anything`;
-                        }
-                        else {
-                            let purified = DOMPurify.sanitize(safeUserInput);
-                            outputBox.innerHTML = `Prompt result: ${purified}`;
-                        }
-                    });
-                }, 0);
+                document.getElementById("saferPromptButton").addEventListener("click", function() {
+                    outputBox.innerHTML = ``;
+                    let safeUserInput = window.prompt("What is your name?");
+                    if(safeUserInput === null) {
+                        output.innerHTML = `User didn't enter anything`;
+                    }
+                    else {
+                        let purified = DOMPurify.sanitize(safeUserInput);
+                        output.innerHTML = `Prompt result: ${purified}`;
+                    }
+                });
             }
         </script>
     </body>
