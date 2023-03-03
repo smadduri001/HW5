@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="EN">
+    <head>
+        <title>Crud</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Blog Posts</h1>
+
+        <ul id="blogPostsList"></ul>
+
+        <template id="blogPostTemplate">
+            <li>
+                <p class="Blog_Title"></p>
+                <p class="Blog_Date"></p>
+                <p class="Blog_Summary"></p>
+                <button class="editBlogBtn">Edit</button>
+                <button class="deleteBlogBtn">Delete</button>
+            </li>
+        </template>
+
+        <button id="addBlogButton">Add Blog</button>
+
+        <dialog id="addBlogDialog">
+            <form id="blogForm">
+                <label for="blogTitle">Blog Title:</label>
+                <input type="text" id="blogTitle">
+                <br />
+                <label for="blogDate">Blog Date:</label>
+                <input type="date" id="blogDate">
+                <br />
+                <label for="blogSummary">Blog Summary:</label>
+                <input type="text" id="blogSummary">
+                <br />
+                <button id="cancelButton">Cancel</button>
+                <button id="submitBlogInfoButton">Save</button>
+            </form>
+        </dialog>
+
+        <script type="module">
+            import { Blog } from './blog.js';
+
+            // load DOM
+            window.addEventListener('DOMContentLoaded', init);
+
+            function init() {
+                // add blog button -> add blog dialog where you fill in the deets
+                document.getElementById("addBlogButton").addEventListener("click", function () {
+                    let blogDialog = document.getElementById("addBlogDialog");
+                    blogDialog.showModal();
+                    document.getElementById("cancelButton").addEventListener("click", function() {
+                        blogDialog.close();
+                    });
+                    document.getElementById("submitBlogInfoButton").addEventListener("click", function() {
+                        let blogTitle = document.getElementById("blogTitle").value;
+                        let blogDate = document.getElementById("blogDate").value;
+                        let blogSummary = document.getElementById("blogElement").value;
+
+                        Blog.addBlog(blogTitle, blogDate, blogSummary);
+                        blogDialog.close();
+                    });
+                    // Getting the blogposts from local storage
+                    let blogPostsList = document.getElementById("blogPostsList");
+                    blogPostsList.innerHTML = ``;
+                    let blogPosts = Blog.getBlogPosts();
+                    //looping through blogposts to display the blogposts
+                    let blogPostTemplate = document.getElementById("blogPostTemplate");
+                    for(let i = 0; i < blogPosts.length; i++) {
+                        blogPostTemplate.getElementsByClassName("Blog_Title")[i].innerHTML = blogPosts[i].title;
+                        blogPostTemplate.getElementsByClassName("Blog_Date")[i].innerHTML = blogPosts[i].date;
+                        blogPostTemplate.getElementsByClassName("Blog_Summary")[i].innerHTML = blogPosts[i].summary;
+                    }
+                });
+
+                /*document.getElementsByClassName("deleteBlogBtn").addEventListener("click", function (entry) {
+                    let blogTitle = document.getElementById("Blog_Title").value;
+                    let blogDate = document.getElementById("Blog_Date").value;
+                    let blogSummary = document.getElementById("Blog_Summary").value;
+
+                    Blog.deleteBlog(blogTitle, blogDate, blogSummary);
+                });
+
+                document.getElementsByClassName("editBlogBtn").addEventListener("click", function () {
+
+                });*/
+            }
+        </script>
+    </body>
+</html>
