@@ -42,6 +42,7 @@
                             outputBox.innerHTML = `User didn't enter anything`;
                         }
                         else {
+                            // <b onmouseover="alert('pwned')">Roll me</b>
                             setTimeout(() => {
                                 outputBox.innerHTML = `Prompt result: ${userInput}`;
                             }, 0);
@@ -57,8 +58,10 @@
                             outputBox.innerHTML = `User didn't enter anything`;
                         }
                         else {
-                            let purified = DOMPurify.sanitize(safeUserInput);
-                            outputBox.innerHTML = `Prompt result: ${purified}`;
+                            setTimeout(() => {
+                                let purified = DOMPurify.sanitize(safeUserInput);
+                                outputBox.innerHTML = `Prompt result: ${purified}`;
+                            })
                         }
                     }, 0);
                 });
