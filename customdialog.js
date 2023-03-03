@@ -5,6 +5,7 @@ export function init() {
 
     document.getElementById("alertButton").addEventListener("click", function() {
         let alertDialog = document.getElementById("alertDialog");
+        // I'm using the methods unique to the dialog tag here:showmodal and close
         alertDialog.showModal();
         document.getElementById("alertPressedButton").addEventListener("click", function() {
             alertDialog.close();
@@ -16,6 +17,7 @@ export function init() {
         setTimeout(() => {
             let confirmDialog = document.getElementById("confirmDialog");
             confirmDialog.showModal();
+            // two event listeners for the two buttons in the dialog box
             document.getElementById("confirmCancelButton").addEventListener("click", function() {
                 confirmDialog.close();
                 outputBox.innerHTML = `The value returned by the confirm method is : false`;
@@ -36,6 +38,7 @@ export function init() {
                 outputBox.innerHTML = `User didn't enter anything`;
                 promptDialog.close();
             });
+            // I used the field's value to get the text and mimic prompt
             document.getElementById("promptOkButton").addEventListener("click", function() {
                 let userInput = document.getElementById("promptInput");
                 if(userInput.value === null) {

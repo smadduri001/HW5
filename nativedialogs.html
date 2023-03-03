@@ -17,17 +17,19 @@
         <output id="outputBox"></output>
 
         <script>
+            // load DOM
             window.addEventListener('DOMContentLoaded', init);
 
             function init() {
                 let outputBox = document.getElementById("outputBox");
-
+                // handle alert
                 document.getElementById("alertButton").addEventListener("click", function() {
                     alert("Alert pressed!");
                 });
 
                 document.getElementById("confirmButton").addEventListener("click", function() {
                     outputBox.innerHTML = ``;
+                    //set a timeout so that the output does clear before we change the value
                     setTimeout(() => {
                         let permission = confirm("Do you confirm this?");
                         outputBox.innerHTML = `The value returned by the confirm method is : ${permission}`;
@@ -36,6 +38,7 @@
 
                 document.getElementById("promptButton").addEventListener("click", function() {
                     outputBox.innerHTML = ``;
+                    //set a timeout so that the output does clear before we change the value
                     setTimeout(() => {
                         let userInput = prompt("What is your name?");
                         if(userInput === null) {
@@ -43,6 +46,8 @@
                         }
                         else {
                             // <b onmouseover="alert('pwned')">Roll me</b>
+                            // I added an additional timeout to make sure that the prompt input like 
+                            // the one above was actually responsive
                             setTimeout(() => {
                                 outputBox.innerHTML = `Prompt result: ${userInput}`;
                             }, 0);
@@ -52,12 +57,14 @@
 
                 document.getElementById("saferPromptButton").addEventListener("click", function() {
                     outputBox.innerHTML = ``;
+                    //set a timeout so that the output does clear before we change the value
                     setTimeout(() => {
                         let safeUserInput = window.prompt("What is your name?");
                         if(safeUserInput === null) {
                             outputBox.innerHTML = `User didn't enter anything`;
                         }
                         else {
+                            // I added an additional timeout to make sure that the prompt input was actually responsive
                             setTimeout(() => {
                                 let purified = DOMPurify.sanitize(safeUserInput);
                                 outputBox.innerHTML = `Prompt result: ${purified}`;
