@@ -10,53 +10,48 @@
     </head>
     <body>
         <h1>Simple Dialogs?</h1>
-        <button id="alert">Alert</button>
-        <button id = "confirm">Confirm</button>
-        <button id = "prompt">Prompt</button>
-        <button id = "saferPrompt">Safer Prompt</button>
-        <output id="output"></output>
+        <button id="alertButton">Alert</button>
+        <button id = "confirmButton">Confirm</button>
+        <button id = "promptButton">Prompt</button>
+        <button id = "saferPromptButton">Safer Prompt</button>
+        <output id="outputBox"></output>
 
         <script>
             window.addEventListener('DOMContentLoaded', init);
 
-            let prompta = document.getElementById("prompt");
-            let saferPrompt = document.getElementById("saferPrompt");
-            let output = document.getElementById("output");
-
             function init() {
-                let alert = document.getElementById("alert");
-                let confirm = document.getElementById("confirm");
+                let outputBox = document.getElementById("outputBox");
 
-                alert.addEventListener("click", function() {
-                    window.alert("Alert pressed!");
+                document.getElementById("alertButton").addEventListener("click", function() {
+                    alert("Alert pressed!");
                 });
 
-                confirm.addEventListener("click", function() {
-                    let permission = window.confirm("Do you confirm this?");
+                document.getElementById("confirmButton").addEventListener("click", function() {
+                    let permission = confirm("Do you confirm this?");
                     output.innerHTML = `The value returned by the confirm method is : ${permission}`;
                 });
+
+                document.getElementById("promptButton").addEventListener("click", function() {
+                    let userInput = prompt("What is your name?");
+                    if(userInput === null) {
+                        output.innerHTML = `User didn't enter anything`;
+                    }
+                    else {
+                        output.innerHTML = `Prompt result: ${userInput}`;
+                    }
+                });
+
+                document.getElementById("saferPromptButton").addEventListener("click", function() {
+                    let safeUserInput = window.prompt("What is your name?");
+                    if(safeUserInput === null) {
+                        output.innerHTML = `User didn't enter anything`;
+                    }
+                    else {
+                        let purified = DOMPurify.sanitize(safeUserInput);
+                        output.innerHTML = `Prompt result: ${purified}`;
+                    }
+                });
             }
-
-            prompta.addEventListener("click", function() {
-                let userInput = window.prompt("What is your name?");
-                if(userInput === null) {
-                    output.textContent = `User didn't enter anything`;
-                }
-                else {
-                    output.innerHTML = `Prompt result: ${userInput}`;
-                }
-            });
-
-            saferPrompt.addEventListener("click", function() {
-                let safeUserInput = window.prompt("What is your name?");
-                if(safeUserInput === null) {
-                    output.textContent = `User didn't enter anything`;
-                }
-                else {
-                    let purified = DOMPurify.sanitize(safeUserInput);
-                    output.innerHTML = `Prompt result: ${purified}`;
-                }
-            });
         </script>
     </body>
 </html>
