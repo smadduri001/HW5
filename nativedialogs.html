@@ -19,12 +19,13 @@
         <script>
             window.addEventListener('DOMContentLoaded', init);
 
+            let prompta = document.getElementById("prompt");
+            let saferPrompt = document.getElementById("saferPrompt");
+            let output = document.getElementById("output");
+
             function init() {
                 let alert = document.getElementById("alert");
                 let confirm = document.getElementById("confirm");
-                let prompt = document.getElementById("prompt");
-                let saferPrompt = document.getElementById("saferPrompt");
-                let output = document.getElementById("output");
 
                 alert.addEventListener("click", function() {
                     window.alert("Alert pressed!");
@@ -34,28 +35,28 @@
                     let permission = window.confirm("Do you confirm this?");
                     output.innerHTML = `The value returned by the confirm method is : ${permission}`;
                 });
-
-                prompt.addEventListener("click", function() {
-                    let userInput = window.prompt("What is your name?");
-                    if(userInput === null) {
-                        output.textContent = `User didn't enter anything`;
-                    }
-                    else {
-                        output.innerHTML = `Prompt result: ${userInput}`;
-                    }
-                });
-
-                saferPrompt.addEventListener("click", function() {
-                    let safeUserInput = window.prompt("What is your name?");
-                    if(safeUserInput === null) {
-                        output.textContent = `User didn't enter anything`;
-                    }
-                    else {
-                        let purified = DOMPurify.sanitize(safeUserInput);
-                        output.innerHTML = `Prompt result: ${purified}`;
-                    }
-                });
             }
+
+            prompta.addEventListener("click", function() {
+                let userInput = window.prompt("What is your name?");
+                if(userInput === null) {
+                    output.textContent = `User didn't enter anything`;
+                }
+                else {
+                    output.innerHTML = `Prompt result: ${userInput}`;
+                }
+            });
+
+            saferPrompt.addEventListener("click", function() {
+                let safeUserInput = window.prompt("What is your name?");
+                if(safeUserInput === null) {
+                    output.textContent = `User didn't enter anything`;
+                }
+                else {
+                    let purified = DOMPurify.sanitize(safeUserInput);
+                    output.innerHTML = `Prompt result: ${purified}`;
+                }
+            });
         </script>
     </body>
 </html>
