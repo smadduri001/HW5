@@ -17,12 +17,12 @@
         <output id="output"></output>
 
         <script>
-            window.addEventListener("DOMContentLoaded", function() {
-                let alert = document.getElementById("alert");
-                let confirm = document.getElementById("confirm");
-                let prompt = document.getElementById("prompt");
-                let saferPrompt = document.getElementById("saferPrompt");
-                let output = document.getElementById("output");
+            document.addEventListener("DOMContentLoaded", function() {
+                let alert = window.getElementById("alert");
+                let confirm = window.getElementById("confirm");
+                let prompt = window.getElementById("prompt");
+                let saferPrompt = window.getElementById("saferPrompt");
+                let output = window.getElementById("output");
 
                 alert.addEventListener("click", function() {
                     alert("Alert pressed!");
