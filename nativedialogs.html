@@ -35,7 +35,7 @@
 
                 setTimeout(() => {
                     document.getElementById("promptButton").addEventListener("click", function() {
-                        output.innerHTML = "";
+                        //output.innerHTML = "";
                         let userInput = prompt("What is your name?");
                         if(userInput === null) {
                             output.innerHTML = `User didn't enter anything`;
@@ -48,7 +48,7 @@
 
                 setTimeout(() => {
                     document.getElementById("saferPromptButton").addEventListener("click", function() {
-                        output.innerHTML = "";
+                        //output.innerHTML = "";
                         let safeUserInput = window.prompt("What is your name?");
                         if(safeUserInput === null) {
                             output.innerHTML = `User didn't enter anything`;
