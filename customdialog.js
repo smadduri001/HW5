@@ -38,7 +38,7 @@ export function init() {
             });
             document.getElementById("promptOkButton").addEventListener("click", function() {
                 let userInput = document.getElementById("promptInput");
-                if(userInput.value == null) {
+                if(userInput.value === null) {
                     outputBox.innerHTML = `User didn't enter anything`;
                 }
                 else {
