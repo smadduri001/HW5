@@ -5,6 +5,8 @@
         <meta charset="utf-8">
     </head>
     <body>
+
+        <h1>Method Test</h1>
         <form id="method_form">
             <label for="id">Record ID:</label>
             <input type="number" id ="id" name="id"> <br>
@@ -15,5 +17,35 @@
             <label for="article_body">Article Body:</label>
             <textarea type="text" id ="article_body" name="article_body"></textarea> <br>
         </form>
+
+        <button id="postBtn">Post</button>
+        <button id="getBtn">Get</button>
+        <button id="putBtn">Put</button>
+        <button id="deleteBtn">Delete</button>
+
+        <output id="response"></output>
+
+        <script>
+            document.getElementById("postBtn").addEventListener("click", postFunc);
+            document.getElementById("getBtn").addEventListener("click", getFunc);
+            document.getElementById("putBtn").addEventListener("click", putFunc);
+            document.getElementById("deleteBtn").addEventListener("click", deleteFunc);
+
+            function postFunc() {
+
+            }
+
+            function getFunc() {
+                
+            }
+
+            function putFunc() {
+                
+            }
+
+            function deleteFunc() {
+                
+            }
+        </script>
     </body>
 </html>
