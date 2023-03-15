@@ -21,6 +21,12 @@
 
             <label for="article_body">Article Body:</label>
             <textarea type="text" id ="article_body" name="article_body"></textarea> <br>
+
+            <label for="xml-api">Use XMLHttpRequest</label>
+            <input type="radio" id="xml-api" name="method_type" value="XMLHttpRequest"></radio>
+
+            <label for="fetch-api">Use Fetch</label>
+            <input type="radio" id="fetch-api" name="method_type" value="Fetch" checked></radio>
         </form>
 
         <button id="postBtn">Post</button>
@@ -52,7 +58,12 @@
                 const id = methodForm.elements["id"].value;
                 const article_name = methodForm.elements["article_name"].value;
                 const article_body = methodForm.elements["article_body"].value;
+
+                method_type = document.querySelector("input[name=method_type]:checked").value;
+                alert(method_type);
+
                 let date = getDate();
+                
                 fetch("https://httpbin.org/post", {
                     method: 'POST',
                     headers: {
