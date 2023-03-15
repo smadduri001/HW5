@@ -7,8 +7,12 @@
         <script src="https://cdnjs.com/libraries/react-dom"></script>
     </head>
     <body>
-        <button id="button-count"></button>
+        <button id="button-count">Times Clicked: 0</button>
         <script type="module">
+
+            import React from "https://cdnjs.com/libraries/react";
+            import ReactDOM from "https://cdnjs.com/libraries/react-dom";
+
             function ButtonCount() {
                 let [buttoncount, increment] = React.useState(0);
 
