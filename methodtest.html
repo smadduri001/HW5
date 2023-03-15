@@ -52,7 +52,7 @@
                 const id = methodForm.elements["id"].value;
                 const article_name = methodForm.elements["article_name"].value;
                 const article_body = methodForm.elements["article_body"].value;
-                const date = getDate();
+                let date = getDate();
                 fetch("https://httpbin.org/post", {
                     method: 'POST',
                     headers: {
@@ -84,7 +84,7 @@
                 const id = methodForm.elements["id"].value;
                 const article_name = methodForm.elements["article_name"].value;
                 const article_body = methodForm.elements["article_body"].value;
-                const date = getDate();
+                let date = getDate();
                 fetch("https://httpbin.org/put", {
                     method: 'PUT',
                     headers: {
