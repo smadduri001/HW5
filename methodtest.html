@@ -58,7 +58,7 @@
                     })
                 })
                 .then(resp => resp.json())
-                .then(data => displayResponse(data))
+                .then(resp => displayResponse(resp))
                 .catch(error => console.error(error));
             }
 
@@ -94,7 +94,7 @@
             function deleteFunc() {
                 fetch("https://httpbin.org/delete")
                 .then(resp => resp.json())
-                .then(data => displayResponse(data))
+                .then(resp => displayResponse(resp))
                 .catch(error => console.error(error));
             }
         </script>
