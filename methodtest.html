@@ -33,7 +33,8 @@
 
             function displayResponse(data) {
                 let outputBox = document.getElementById("response");
-                outputBox.innerHTML = JSON.stringify(response, null, 4);
+
+                outputBox.innerHTML = JSON.stringify(data, null, 4);
             }
 
             function getDate() {
@@ -58,7 +59,7 @@
                     })
                 })
                 .then(resp => resp.json())
-                .then(resp => displayResponse(resp))
+                .then(data => displayResponse(data))
                 .catch(error => console.error(error));
             }
 
@@ -94,7 +95,7 @@
             function deleteFunc() {
                 fetch("https://httpbin.org/delete")
                 .then(resp => resp.json())
-                .then(resp => displayResponse(resp))
+                .then(data => displayResponse(data))
                 .catch(error => console.error(error));
             }
         </script>
