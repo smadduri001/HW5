@@ -1,5 +1,4 @@
 Name: Sri Siddhartha Madduri
 PID: A15964492
-Netlify URL: https://dashing-marigold-6df41d.netlify.app/index.html
-(The three other html pages are linked under the title)
-I managed to get a dialog for the inputting blog but didn't have enough time to fully implement CRUD.
+Netlify URL: https://dancing-stroopwafel-a8c4d3.netlify.app/
+I tried working on the extra credit but had issues with import with react, as described by the messages in the slack channel.

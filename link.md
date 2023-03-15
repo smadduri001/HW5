@@ -1,5 +1,4 @@
-https://github.com/smadduri001/HW4
+https://github.com/smadduri001/HW5
 
-https://dashing-marigold-6df41d.netlify.app/nativedialogs.html
-https://dashing-marigold-6df41d.netlify.app/customdialog.html
-https://dashing-marigold-6df41d.netlify.app/crud.html
+https://dancing-stroopwafel-a8c4d3.netlify.app/methodtest.html
+https://dancing-stroopwafel-a8c4d3.netlify.app/webcomponent.html
