@@ -38,15 +38,20 @@
 
         <output id="response"></output>
 
-        <script>
-            document.getElementById("postBtn").addEventListener("click", postFunc);
-            document.getElementById("getBtn").addEventListener("click", getFunc);
-            document.getElementById("putBtn").addEventListener("click", putFunc);
-            document.getElementById("deleteBtn").addEventListener("click", deleteFunc);
+        <script type="module">
+
+            window.addEventListener('DOMContentLoaded', init);
+
+            function init() {
+                let postBtn = document.getElementById("postBtn").addEventListener("click", postFunc);
+                let getBtn = document.getElementById("getBtn").addEventListener("click", getFunc);
+                let putBtn = document.getElementById("putBtn").addEventListener("click", putFunc);
+                let deleteBtn = document.getElementById("deleteBtn").addEventListener("click", deleteFunc);
+            }
 
             function displayResponse(data) {
                 let outputBox = document.getElementById("response");
-                outputBox.textContent = JSON.stringify(data, null, 2);
+                outputBox.textContent = JSON.stringify(data, null, 4);
             }
 
             function getDate() {
@@ -54,72 +59,152 @@
             }
 
             function postFunc() {
-                const methodForm = document.querySelector("#method_form");
-                const id = methodForm.elements["id"].value;
-                const article_name = methodForm.elements["article_name"].value;
-                const article_body = methodForm.elements["article_body"].value;
+                let methodForm = document.querySelector("#method_form");
+                let id = methodForm.elements["id"].value;
+                let article_name = methodForm.elements["article_name"].value;
+                let article_body = methodForm.elements["article_body"].value;
 
-                method_type = document.querySelector("input[name=method_type]:checked").value;
-                alert(method_type);
+                let method_type = document.querySelector("input[name=method_type]:checked").value;
 
                 let date = getDate();
-                
-                fetch("https://httpbin.org/post", {
-                    method: 'POST',
-                    headers: {
-                        "Content-type": "application/json; charset=utf-8"
-                    },
-                    body: JSON.stringify({
+
+                if(method_type == "XMLHttpRequest") {
+                    let xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'https://httpbin.org/post', true);
+                    xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+                    xhr.onload = function() {
+                        if(xhr.readyState == 4 && xhr.status == 200) {
+                            displayResponse(JSON.parse(xhr.responseText));
+                        }
+                        else {
+                            console.error(xhr.statusText);
+                        }
+                    }
+                    xhr.send(JSON.stringify({
                         id,
                         article_name,
                         article_body,
                         date
+                    }));
+                }
+                else if(method_type == "Fetch") {
+                    fetch('https://httpbin.org/post', {
+                        method: 'POST',
+                        headers: {
+                            'Content-type': 'application/x-www-form-urlencoded'
+                        },
+                        body: JSON.stringify({
+                            id,
+                            article_name,
+                            article_body,
+                            date
+                        })
                     })
-                })
-                .then(response => response.json())
-                .then(data => displayResponse(data))
-                .catch(error => console.error(error));
+                    .then(response => response.json())
+                    .then(data => displayResponse(data))
+                    .catch(error => console.error(error));
+                }
             }
 
             function getFunc() {
-                fetch("https://httpbin.org/get", {
-                    method: 'GET'
-                })
-                .then(response => response.json())
-                .then(data => displayResponse(data))
-                .catch(error => console.error(error));
+                let method_type = document.querySelector("input[name=method_type]:checked").value;
+
+                if(method_type == "XMLHttpRequest") {
+                    let xhr = new XMLHttpRequest();
+                    xhr.open('GET', 'https://httpbin.org/get', true);
+                    xhr.onload = function() {
+                        if(xhr.readyState == 4 && xhr.status == 200) {
+                            displayResponse(JSON.parse(xhr.responseText));
+                        }
+                        else {
+                            console.error(xhr.statusText);
+                        }
+                    }
+                }
+
+                else if(method_type == "Fetch") {
+                    fetch('https://httpbin.org/get', {
+                        method: 'GET'
+                    })
+                    .then(response => response.json())
+                    .then(data => displayResponse(data))
+                    .catch(error => console.error(error));
+                }
             }
 
             function putFunc() {
-                const methodForm = document.querySelector("#method_form");
-                const id = methodForm.elements["id"].value;
-                const article_name = methodForm.elements["article_name"].value;
-                const article_body = methodForm.elements["article_body"].value;
+                let methodForm = document.querySelector("#method_form");
+                let id = methodForm.elements["id"].value;
+                let article_name = methodForm.elements["article_name"].value;
+                let article_body = methodForm.elements["article_body"].value;
+
+                let method_type = document.querySelector("input[name=method_type]:checked").value;
+
                 let date = getDate();
-                fetch("https://httpbin.org/put", {
-                    method: 'PUT',
-                    headers: {
-                        "Content-type": "application/json; charset=utf-8"
-                    },
-                    body: JSON.stringify({
+
+                if(method_type == "XMLHttpRequest") {
+                    let xhr = new XMLHttpRequest();
+                    xhr.open('PUT', 'https://httpbin.org/put', true);
+                    xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+                    xhr.onload = function() {
+                        if(xhr.readyState == 4 && xhr.status == 200) {
+                            displayResponse(JSON.parse(xhr.responseText));
+                        }
+                        else {
+                            console.error(xhr.statusText);
+                        }
+                    }
+                    xhr.send(JSON.stringify({
                         id,
                         article_name,
                         article_body,
                         date
+                    }));
+                }
+
+                else if(method_type == "Fetch") {
+                    fetch('https://httpbin.org/put', {
+                        method: 'PUT',
+                        headers: {
+                            'Content-type': 'application/x-www-form-urlencoded'
+                        },
+                        body: JSON.stringify({
+                            id,
+                            article_name,
+                            article_body,
+                            date
+                        })
                     })
-                })
-                .then(response => response.json())
-                .then(data => displayResponse(data))
-                .catch(error => console.error(error));
+                    .then(response => response.json())
+                    .then(data => displayResponse(data))
+                    .catch(error => console.error(error));
+                }
             }
 
             function deleteFunc() {
-                fetch("https://httpbin.org/delete", {
-                    method: 'DELETE'
-                })
-                .then(response => response.json())
-                .then(data => displayResponse(data))
-                .catch(error => console.error(error));
+                let method_type = document.querySelector("input[name=method_type]:checked").value;
+
+                if(method_type == "XMLHttpRequest") {
+                    let xhr = new XMLHttpRequest();
+                    xhr.open('DELETE', 'https://httpbin.org/delete', true);
+                    xhr.onload = function() {
+                        if(xhr.readyState == 4 && xhr.status == 200) {
+                            displayResponse(JSON.parse(xhr.responseText));
+                        }
+                        else {
+                            console.error(xhr.statusText);
+                        }
+                    }
+                }
+
+                else if(method_type == "Fetch") {
+                    fetch('https://httpbin.org/delete', {
+                        method: 'DELETE'
+                    })
+                    .then(response => response.json())
+                    .then(data => displayResponse(data))
+                    .catch(error => console.error(error));
+                }
             }
         </script>
     </body>
