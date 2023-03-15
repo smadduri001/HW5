@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <style>
             #response {
-                white-space: pre-wrap;
+                white-space: pre;
             }
         </style>
     </head>
@@ -47,7 +47,7 @@
                     count++;
                 }
                 alert(count);
-                outputBox.textContent = JSON.stringify(data);
+                outputBox.textContent = JSON.stringify(data).replace(/,\s*(?!["{}[\]])/g, ',\n');;
             }
 
             function getDate() {
