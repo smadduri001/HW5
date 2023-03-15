@@ -37,7 +37,7 @@
                 let outputBox = document.getElementById("response");
                 let prettifiedData = '';
                 let count = 0;
-                for (let key in data) {
+                for (const key in data) {
                     prettifiedData += JSON.stringify(key) + ': ' + JSON.stringify(data[key]) + '\n';
                     count++;
                 }
