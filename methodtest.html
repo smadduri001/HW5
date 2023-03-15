@@ -3,6 +3,11 @@
     <head>
         <title>Method Test</title>
         <meta charset="utf-8">
+        <style>
+            #response {
+                white-space: pre;
+            }
+        </style>
     </head>
     <body>
 
@@ -38,7 +43,7 @@
                 let prettifiedData = '';
                 let count = 0;
                 for (const key in data) {
-                    prettifiedData += JSON.stringify(key) + ': ' + JSON.stringify(data[key]) + '\n';
+                    prettifiedData += key + ': ' + JSON.stringify(data[key]) + '\n';
                     count++;
                 }
                 alert(count);
