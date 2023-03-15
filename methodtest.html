@@ -34,7 +34,7 @@
                 for (let key in data) {
                     prettifiedData += JSON.stringify(key) + ': ' + JSON.stringify(data[key]) + '\n';
                 }
-                outputBox.innerHTML = prettifiedData;
+                outputBox.textContent = prettifiedData;
             }
 
             function getDate() {
