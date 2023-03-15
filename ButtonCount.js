@@ -5,7 +5,7 @@ class ButtonCount extends HTMLElement {
         const shadow = this.attachShadow({ mode: "open" });
 
         const button = document.createElement("button");
-        button.textContent = ``;
+        button.textContent = `Times Clicked: `;
 
         shadow.appendChild(button);
 
