@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="EN">
+    <head>
+        <title>Extra Credit - React and Vue</title>
+        <meta charset="utf-8">
+        <script src="https://cdnjs.com/libraries/react"></script>
+        <script src="https://cdnjs.com/libraries/react-dom"></script>
+    </head>
+    <body>
+        <span id="button-count"></span>
+        <script type="module">
+            function ButtonCount() {
+                let [count] = React.useState(0);
+
+                function click() {
+                    button.textContent = `Times Clicked: ${++count}`;
+                }
+
+                return (
+                    <button onClick={click}></button>
+                );
+            }
+            ReactDOM.render(<ButtonCount/>, document.querySelector('#button-count'));
+        </script>
+    </body>
+</html>
