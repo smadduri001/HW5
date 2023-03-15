@@ -37,9 +37,9 @@
             }
 
             function postFunc() {
-                const id = form.elements["id"].value;
-                const article_name = form.elements["article_name"].value;
-                const article_body = form.elements["article_body"].value;
+                const id = document.getElementById("id").value;
+                const article_name = document.getElementById("article_name").value;
+                const article_body = document.getElementById("article_body").value;
                 const date = getDate();
                 fetch("https://httpbin.org/post", {
                     method: 'POST',
@@ -68,9 +68,9 @@
             }
 
             function putFunc() {
-                const id = form.elements["id"].value;
-                const article_name = form.elements["article_name"].value;
-                const article_body = form.elements["article_body"].value;
+                const id = document.getElementById("id").value;
+                const article_name = document.getElementById("article_name").value;
+                const article_body = document.getElementById("article_body").value;
                 const date = getDate();
                 fetch("https://httpbin.org/put", {
                     method: 'PUT',
