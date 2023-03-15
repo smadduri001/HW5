@@ -30,8 +30,11 @@
         <script>
             function displayResponse(data) {
                 let outputBox = document.getElementById("response");
-                alert(data);
-                outputBox.textContent = JSON.stringify(data, null, 2).replace(/,/g, ',\n');
+                let prettifiedData = '';
+                for (let key in data) {
+                    prettifiedData += JSON.stringify(key) + ': ' + JSON.stringify(data[key]) + '\n';
+                }
+                outputBox.innerHTML = prettifiedData;
             }
 
             function getDate() {
