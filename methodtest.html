@@ -28,12 +28,20 @@
         <output id="response"></output>
 
         <script>
+            document.getElementById("postBtn").addEventListener("click", postFunc);
+            document.getElementById("getBtn").addEventListener("click", getFunc);
+            document.getElementById("putBtn").addEventListener("click", putFunc);
+            document.getElementById("deleteBtn").addEventListener("click", deleteFunc);
+
             function displayResponse(data) {
                 let outputBox = document.getElementById("response");
                 let prettifiedData = '';
+                let count = 0;
                 for (let key in data) {
                     prettifiedData += JSON.stringify(key) + ': ' + JSON.stringify(data[key]) + '\n';
+                    count++;
                 }
+                alert(count);
                 outputBox.textContent = prettifiedData;
             }
 
@@ -102,11 +110,6 @@
                 .then(data => displayResponse(data))
                 .catch(error => console.error(error));
             }
-
-            document.getElementById("postBtn").addEventListener("click", postFunc);
-            document.getElementById("getBtn").addEventListener("click", getFunc);
-            document.getElementById("putBtn").addEventListener("click", putFunc);
-            document.getElementById("deleteBtn").addEventListener("click", deleteFunc);
         </script>
     </body>
 </html>
