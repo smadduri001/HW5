@@ -47,7 +47,7 @@
                     count++;
                 }
                 alert(count);
-                outputBox.textContent = prettifiedData;
+                outputBox.textContent = JSON.stringify(data, null, 2);
             }
 
             function getDate() {
