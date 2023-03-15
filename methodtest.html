@@ -31,20 +31,71 @@
             document.getElementById("putBtn").addEventListener("click", putFunc);
             document.getElementById("deleteBtn").addEventListener("click", deleteFunc);
 
-            function postFunc() {
+            function displayResponse(data) {
+                let outputBox = document.getElementById("response");
+                outputBox.innerHTML = JSON.stringify(response, null, 4);
+            }
 
+            function getDate() {
+                return new Date().toISOString();
+            }
+
+            function postFunc() {
+                const id = form.elements["id"].value;
+                const article_name = form.elements["article_name"].value;
+                const article_body = form.elements["article_body"].value;
+                const date = getDate();
+                fetch("https://httpbin.org/post", {
+                    method: 'POST',
+                    headers: {
+                        "Content-type": "application/json; charset=utf-8"
+                    },
+                    body: JSON.stringify({
+                        id,
+                        article_name,
+                        article_body,
+                        date
+                    })
+                })
+                .then(resp => resp.json())
+                .then(data => displayResponse(data))
+                .catch(error => console.error(error));
             }
 
             function getFunc() {
-                
+                fetch("https://httpbin.org/get")
+                .then(resp => resp.json())
+                .then(data => displayResponse(data))
+                .catch(error => console.error(error));
             }
 
             function putFunc() {
-                
+                const id = form.elements["id"].value;
+                const article_name = form.elements["article_name"].value;
+                const article_body = form.elements["article_body"].value;
+                const date = getDate();
+                fetch("https://httpbin.org/put", {
+                    method: 'PUT',
+                    headers: {
+                        "Content-type": "application/json; charset=utf-8"
+                    },
+                    body: JSON.stringify({
+                        id,
+                        article_name,
+                        article_body,
+                        date
+                    })
+                })
+                .then(resp => resp.json())
+                .then(data => displayResponse(data))
+                .catch(error => console.error(error));
             }
 
             function deleteFunc() {
-                
+                fetch("https://httpbin.org/delete")
+                .then(resp => resp.json())
+                .then(data => displayResponse(data))
+                .catch(error => console.error(error));
             }
         </script>
     </body>
