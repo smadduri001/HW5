@@ -38,7 +38,7 @@
             }
 
             function getDate() {
-                return new Date().toISOString();
+                return new Date();
             }
 
             function postFunc() {
@@ -58,8 +58,8 @@
                         date
                     })
                 })
-                .then(resp => resp.json())
-                .then(resp => displayResponse(resp))
+                .then(response => response.json())
+                .then(data => displayResponse(data))
                 .catch(error => console.error(error));
             }
 
@@ -67,8 +67,8 @@
                 fetch("https://httpbin.org/get", {
                     method: 'GET'
                 })
-                .then(resp => resp.json())
-                .then(resp => displayResponse(resp))
+                .then(response => response.json())
+                .then(data => displayResponse(data))
                 .catch(error => console.error(error));
             }
 
@@ -89,8 +89,8 @@
                         date
                     })
                 })
-                .then(resp => resp.json())
-                .then(resp => displayResponse(resp))
+                .then(response => response.json())
+                .then(data => displayResponse(data))
                 .catch(error => console.error(error));
             }
 
@@ -98,8 +98,8 @@
                 fetch("https://httpbin.org/delete", {
                     method: 'DELETE'
                 })
-                .then(resp => resp.json())
-                .then(resp => displayResponse(resp))
+                .then(response => response.json())
+                .then(data => displayResponse(data))
                 .catch(error => console.error(error));
             }
         </script>
