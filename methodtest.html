@@ -113,6 +113,7 @@
                     let xhr = new XMLHttpRequest();
                     xhr.open('GET', 'https://httpbin.org/get', true);
                     xhr.onload = function() {
+                        alert(xhr.status);
                         if(xhr.readyState == 4 && xhr.status == 200) {
                             displayResponse(JSON.parse(xhr.responseText));
                         }
