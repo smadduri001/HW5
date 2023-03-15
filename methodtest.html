@@ -112,7 +112,7 @@
                 if(method_type == "XMLHttpRequest") {
                     let xhr = new XMLHttpRequest();
                     xhr.open('GET', 'https://httpbin.org/get', true);
-                    alert("Hi");
+                    xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
                     xhr.onload = function() {
                         if(xhr.readyState == 4 && xhr.status == 200) {
                             displayResponse(JSON.parse(xhr.responseText));
@@ -188,6 +188,7 @@
                 if(method_type == "XMLHttpRequest") {
                     let xhr = new XMLHttpRequest();
                     xhr.open('DELETE', 'https://httpbin.org/delete', true);
+                    xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
                     xhr.onload = function() {
                         if(xhr.readyState == 4 && xhr.status == 200) {
                             displayResponse(JSON.parse(xhr.responseText));
