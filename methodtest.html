@@ -31,7 +31,7 @@
             function displayResponse(data) {
                 let outputBox = document.getElementById("response");
                 alert(data);
-                outputBox.innerHTML = JSON.stringify(data, null, 2).replace(/,/g, ',\n');
+                outputBox.textContent = JSON.stringify(data, null, 2).replace(/,/g, ',\n');
             }
 
             function getDate() {
