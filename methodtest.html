@@ -59,14 +59,16 @@
                     })
                 })
                 .then(resp => resp.json())
-                .then(data => displayResponse(data))
+                .then(resp => displayResponse(resp))
                 .catch(error => console.error(error));
             }
 
             function getFunc() {
-                fetch("https://httpbin.org/get")
+                fetch("https://httpbin.org/get", {
+                    method: 'GET'
+                })
                 .then(resp => resp.json())
-                .then(data => displayResponse(data))
+                .then(resp => displayResponse(resp))
                 .catch(error => console.error(error));
             }
 
@@ -88,14 +90,16 @@
                     })
                 })
                 .then(resp => resp.json())
-                .then(data => displayResponse(data))
+                .then(resp => displayResponse(resp))
                 .catch(error => console.error(error));
             }
 
             function deleteFunc() {
-                fetch("https://httpbin.org/delete")
+                fetch("https://httpbin.org/delete", {
+                    method: 'DELETE'
+                })
                 .then(resp => resp.json())
-                .then(data => displayResponse(data))
+                .then(resp => displayResponse(resp))
                 .catch(error => console.error(error));
             }
         </script>
