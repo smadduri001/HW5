@@ -43,11 +43,11 @@
                 let prettifiedData = '';
                 let count = 0;
                 for (const key in data) {
-                    prettifiedData += key + ': ' + JSON.stringify(data[key]) + '\n';
+                    prettifiedData += `${key}: ${JSON.stringify(data[key], null, 2)}\n`;
                     count++;
                 }
                 alert(count);
-                outputBox.textContent = JSON.stringify(data).replace(/,\s*(?!["{}[\]])/g, ',\n');;
+                outputBox.textContent = prettifiedData;
             }
 
             function getDate() {
