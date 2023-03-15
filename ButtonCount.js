@@ -6,9 +6,13 @@ class ButtonCount extends HTMLElement {
 
         const button = document.createElement("button");
         button.textContent = ``;
-        
-        shadow.appendChild();
+
+        shadow.appendChild(button);
+
+        button.addEventListener('click', () => {
+
+        });
     }
 }
 
-customElements.define('buttoncount', ButtonCount);
+customElements.define('button-count', ButtonCount);
