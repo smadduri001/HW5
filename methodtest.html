@@ -112,8 +112,8 @@
                 if(method_type == "XMLHttpRequest") {
                     let xhr = new XMLHttpRequest();
                     xhr.open('GET', 'https://httpbin.org/get', true);
+                    alert("Hi");
                     xhr.onload = function() {
-                        alert(xhr.status);
                         if(xhr.readyState == 4 && xhr.status == 200) {
                             displayResponse(JSON.parse(xhr.responseText));
                         }
