@@ -23,7 +23,7 @@
         <button id="putBtn">Put</button>
         <button id="deleteBtn">Delete</button>
 
-        <br>
+        <hr>
 
         <output id="response"></output>
 
@@ -31,7 +31,7 @@
             function displayResponse(data) {
                 let outputBox = document.getElementById("response");
                 alert(data);
-                outputBox.innerHTML = JSON.stringify(data, null, 4);
+                outputBox.innerHTML = JSON.stringify(data, null, 2).replace(/,/g, ',\n');
             }
 
             function getDate() {
